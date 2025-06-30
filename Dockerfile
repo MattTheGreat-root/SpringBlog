@@ -1,6 +1,6 @@
 # Use a base image with Java 21 (as per your pom.xml)
-# 'openjdk:21-jdk-slim-bullseye' provides the JDK for building.
-FROM openjdk:21-jdk-slim-bullseye as builder
+# 'openjdk:21-jdk' provides the JDK for building. This is a more general tag.
+FROM openjdk:21-jdk as builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -15,8 +15,8 @@ COPY src ./src/
 RUN ./mvnw clean package -DskipTests
 
 # --- Second stage: Create a smaller image for running the application ---
-# 'openjdk:21-jre-slim-bullseye' provides just the JRE for running, making the final image smaller.
-FROM openjdk:21-jre-slim-bullseye
+# 'openjdk:21-jre' provides just the JRE for running, making the final image smaller.
+FROM openjdk:21-jre
 
 # Set the working directory in the runtime container
 WORKDIR /app
