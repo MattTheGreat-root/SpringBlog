@@ -16,21 +16,4 @@ public class BlogApplication {
 		SpringApplication.run(BlogApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner initData(BlogPostRepository repo) {
-		return args -> {
-			BlogPost post1 = new BlogPost();
-			post1.setTitle("Welcome to My Blog");
-			post1.setContent("<p>This is the first post with <strong>HTML content</strong>.</p>");
-			post1.setCreatedAt(LocalDateTime.of(2024, 6, 25, 14, 0));
-			repo.save(post1);
-
-			BlogPost post2 = new BlogPost();
-			post2.setTitle("My Second Post");
-			post2.setContent("<p>This one has a custom date.</p>");
-			post2.setCreatedAt(LocalDateTime.of(2024, 12, 15, 10, 0));
-			repo.save(post2);
-		};
-	}
-
 }
