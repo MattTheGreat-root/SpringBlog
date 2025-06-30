@@ -4,10 +4,10 @@ FROM eclipse-temurin:17-jdk-jammy as builder
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Maven Wrapper scripts and pom.xml first
-# This is crucial for './mvnw' to be found and executable.
+# Copy the Maven Wrapper directory and scripts, then pom.xml and src
+COPY .mvn .mvn/
 COPY mvnw .
-COPY mvnw.cmd . 
+COPY mvnw.cmd .
 COPY pom.xml .
 COPY src ./src/
 
