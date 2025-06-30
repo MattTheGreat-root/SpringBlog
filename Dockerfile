@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the Maven Wrapper scripts and pom.xml first
 # This is crucial for './mvnw' to be found and executable.
 COPY mvnw .
-COPY mvnw.cmd . # For Windows compatibility, though not strictly needed in Linux container
+COPY mvnw.cmd . 
 COPY pom.xml .
 COPY src ./src/
 
