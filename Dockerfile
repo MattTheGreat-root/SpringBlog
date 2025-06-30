@@ -1,6 +1,6 @@
 # Use a base image with Java 21 (as per your pom.xml)
-# 'openjdk:21-jdk-slim' provides the JDK for building.
-FROM openjdk:21-jdk-slim as builder
+# 'openjdk:21-jdk-slim-bullseye' provides the JDK for building.
+FROM openjdk:21-jdk-slim-bullseye as builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -15,8 +15,8 @@ COPY src ./src/
 RUN ./mvnw clean package -DskipTests
 
 # --- Second stage: Create a smaller image for running the application ---
-# 'openjdk:21-jre-slim' provides just the JRE for running, making the final image smaller.
-FROM openjdk:21-jre-slim
+# 'openjdk:21-jre-slim-bullseye' provides just the JRE for running, making the final image smaller.
+FROM openjdk:21-jre-slim-bullseye
 
 # Set the working directory in the runtime container
 WORKDIR /app
@@ -24,7 +24,6 @@ WORKDIR /app
 # Copy the built JAR file from the 'builder' stage
 # IMPORTANT: Replace 'blog-0.0.1-SNAPSHOT.jar' with the ACTUAL name of your JAR file.
 # You can find this name in your local 'target/' directory after running 'mvn clean package'.
-# Example: blog-0.0.1-SNAPSHOT.jar (from your pom.xml)
 COPY --from=builder /app/target/blog-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose the port your Spring Boot app runs on.
