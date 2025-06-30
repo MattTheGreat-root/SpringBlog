@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Post</title>
+</head>
+<body>
+<h1>Create a New Blog Post</h1>
+<form th:action="@{/new(secret=${param.secret})}" th:object="${post}" method="post" >
+    <label>Title:</label><br/>
+    <input type="text" th:field="*{title}" required/><br/><br/>
+
+    <label>Content (HTML allowed):</label><br/>
+    <textarea th:field="*{content}" rows="10" cols="80" required></textarea><br/><br/>
+
+    <label>Created At (yyyy-MM-ddTHH:mm):</label><br/>
+    <input type="datetime-local" th:field="*{createdAt}" required/><br/><br/>
+
+    <button type="submit">Publish</button>
+</form>
+
+<a href="/">← Back to Home</a>
+</body>
+</html>

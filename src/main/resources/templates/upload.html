@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+<h1>Upload an Image</h1>
+<form th:action="@{/upload-image(secret=${param.secret})}" method="post" enctype="multipart/form-data">
+    <input type="file" name="image"/>
+    <button type="submit">Upload</button>
+</form>
+
+<div th:if="${imageUrl != null}">
+    <p>Image uploaded! Use this in your blog content:</p>
+    <code th:text="${imageUrl}"></code>
+    <br/><br/>
+    <img th:src="@{${imageUrl}}" style="max-width: 400px;"/>
+</div>
+
+<a href="/">← Back to Home</a>
+</body>
+</html>

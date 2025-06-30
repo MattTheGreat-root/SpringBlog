@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${post.title}"></title>
+</head>
+<body>
+<h1 th:text="${post.title}"></h1>
+<p th:text="${#temporals.format(post.createdAt, 'dd MMM yyyy HH:mm')}"></p>
+<div th:utext="${post.content}"></div>
+<a href="/">← Back to Home</a>
+</body>
+</html>

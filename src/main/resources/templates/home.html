@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Somewhere in his mind</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Somewhere In His Mind</h1>
+        <p>Matin Tavakoli, Computer Science student at AUT</p>
+        <div class="header-links">
+            <a href="https://github.com/MattTheGreat-root" target="_blank">GitHub</a>
+            <span class="link-separator"> | </span>
+            <a href="https://linkedin.com/in/matin-tavakoli-bb0367134" target="_blank">LinkedIn</a>
+            <span class="link-separator"> | </span>
+            <a href="https://t.me/matooly" target="_blank">Telegram</a>
+        </div>
+    </header>
+
+    <div>
+        <article th:each="post : ${posts}">
+            <h2>
+                <a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.title}">Post Title</a>
+            </h2>
+            <div class="date" th:text="${#temporals.format(post.createdAt, 'dd MMM yyyy')}">Date</div>
+            <div class="preview" th:utext="${#strings.abbreviate(post.content, 200)}">Preview of post</div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>Powered by Spring</p>
+    </footer>
+</div>
+</body>
+</html>
