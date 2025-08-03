@@ -18,7 +18,7 @@ import java.util.UUID;
 @Controller
 public class ImageController {
 
-    private static final String SECRET_CODE = "n1ghtcrawler";
+    private static final String SECRET_CODE = "YOUR_SECRET";
 
     @GetMapping("/upload-image")
     public String uploadImageForm(@RequestParam Optional<String> secret, Model model) {
