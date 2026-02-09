@@ -1,7 +1,7 @@
-Blog Application
+# Blog Application
 A simple blog application built with Spring Boot, Thymeleaf, and H2 Database.
 
- Features
+# Features
 Blog Post Management: Create, view, and display blog posts.
 
 Thymeleaf Templates: Dynamic server-side rendering.
@@ -14,7 +14,7 @@ Dockerized: Ready to be run in a container.
 
 Secure Configuration: Uses environment variables for sensitive data.
 
- Technologies Used
+# Technologies Used
 Backend: Java 17, Spring Boot 3.x, Spring Data JPA, Thymeleaf
 
 Database: H2 Database (file-based)
@@ -23,7 +23,7 @@ Build Tool: Apache Maven
 
 Containerization: Docker
 
- Getting Started (Local)
+# Getting Started (Local)
 Follow these steps to run the project on your local machine.
 
 Prerequisites
